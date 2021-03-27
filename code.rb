@@ -17,8 +17,6 @@ require "pry"
       print "サイコロを振ってください (エンターキーをクリック)"
       gets.to_i
       the_dice_roll = rand(1..6)
-      me += the_dice_roll
-      advance_trout = me 
       if the_dice_roll == 1
         puts <<~text
         
@@ -85,61 +83,64 @@ require "pry"
       #{the_dice_roll}マス進みます。
       
       text
-      puts "今、#{advance_trout}マス目です。"
+
+      me += the_dice_roll
+      puts "今、#{me}マス目です。"
+      #ギミックを表示させるメソッドを追加
+      advance_the_piece(me)
     end
   end
   
-  
   #ギミックを表示
-  def advance_the_piece(advance_trout)
-    if advance_trout == 1
+  def advance_the_piece(me)
+    if me == 1
       puts "*=*=2マスすすむ=*=*"
-      advance_trout += 2
-    elsif advance_trout == 3
+      me += 2
+    elsif me == 3
       puts "*=*=２マス戻る=*=*"
-      advance_trout -= 2
-    elsif advance_trout == 5
+      me -= 2
+    elsif me == 5
       puts "*=*=スタートに戻る=*=*"
-      advance_trout -= 5
-    elsif advance_trout == 7
+      me -= 5
+    elsif me == 7
       puts "*=*=2マスすすむ=*=*"
-      advance_trout += 2
-    elsif advance_trout == 10
+      me += 2
+    elsif me == 10
       puts "*=*=9マスすすむ！=*=*"
-      advance_trout += 9
-    elsif advance_trout == 14
+      me += 9
+    elsif me == 14
       puts "*=*=７マス戻る=*=*"
-      advance_trout -= 7
-    elsif advance_trout == 17
+      me -= 7
+    elsif me == 17
       puts "*=*=3マス戻る=*=*"
-      advance_trout -= 3
-    elsif advance_trout == 20
+      me -= 3
+    elsif me == 20
       puts "*=*=スタートに戻る=*=*"
-      advance_trout -= 20
-    elsif advance_trout == 26
+      me -= 20
+    elsif me == 26
       puts "*=*=スタートに戻る=*=*"
-      advance_trout -= 26
-    elsif advance_trout == 28
+      me -= 26
+    elsif me == 28
       puts "*=*=10マス戻る！=*=*"
-      advance_trout -= 10
-    elsif advance_trout == 29
+      me -= 10
+    elsif me == 29
       puts "*=*=スタートに戻る！=*=*"
-      advance_trout -= 29
+      me -= 29
     end
-    puts "現在#{advance_trout}マスです。"
+    puts "現在#{me}マスです。"
   end
   
   #残りのマスを表示する
   def remaining_masu(me, masu)
-    if me > 0 
-      puts "残りのマス目は#{masu - me}です"
-    elsif
+    if me < 0 || me == 0 
       puts "ゴールしました！"
+    else
+      puts "残りのマス目は#{masu - me}です"
     end
   end
-
-masu = 30
-
-disp_start(30)
-roll_the_dice(masu)
-advance_the_piece(advance_trout)
+  
+  masu = 30
+  
+  disp_start(30)
+  roll_the_dice(masu)
+  advance_the_piece(me)
