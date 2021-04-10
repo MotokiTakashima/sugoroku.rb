@@ -6,63 +6,52 @@ class Dice
   def disp_the_dice(number_the_dice)
     if number_the_dice == 1
       puts <<~text
-             
              ---------
              |       |
              |   *   |
              |       |
-             ---------
-             
+             ---------            
            text
     elsif number_the_dice == 2
-      puts <<~text
-             
+      puts <<~text             
              ---------
              | *     |
              |       |
              |     * |
-             ---------
-             
+             ---------            
            text
     elsif number_the_dice == 3
-      puts <<~text
-             
+      puts <<~text           
              ---------
              | *     |
              |   *   |
              |     * |
-             ---------
-             
+             ---------           
            text
     elsif number_the_dice == 4
-      puts <<~text
-             
+      puts <<~text         
              ---------
              | *   * |
              |       |
              | *   * |
-             ---------
-             
+             ---------           
            text
     elsif number_the_dice == 5
-      puts <<~text
-             
+      puts <<~text            
              ---------
              | *   * |
              |   *   |
              | *   * |
-             ---------
-             
+             ---------           
            text
     else
-      puts <<~text
-             
+      puts <<~text           
              ---------
              | *   * |
              | *   * |
              | *   * |
              ---------
-             
+           
            text
     end
   end

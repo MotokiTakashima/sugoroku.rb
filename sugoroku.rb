@@ -43,8 +43,11 @@ class Sugoroku
   
   #プレイヤーのサイコロを振らす処理
   def player_roll_the_dice(player, dice)
-      print "あなたの番です。サイコロを振ってください (エンターキーをクリック)"
-      gets.to_i
+    print "あなたの番です。1から6の好きな数字を選んでください。"
+    while true
+      break if (1..6).include?(gets.to_i)
+      puts "1~6の番号を入力してください。"
+    end
       @number_the_dice = rand(1..6)
       player.me += @number_the_dice
   end
