@@ -4,7 +4,7 @@ require "./computer"
 class Map
   attr_reader :max_square
 
-  def initialize(max_square:)
+  def initialize(max_square)
     @max_square = max_square
   end
   
