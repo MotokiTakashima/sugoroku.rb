@@ -20,11 +20,11 @@ class Sugoroku
   def start(player, computer, map, dice)
     while player.position < map.max_square && computer.position < map.max_square
       #プレイヤーのサイコロを振らす処理
-      player_roll_the_dice(player, dice)
+      player_roll_dice(player, dice)
       #サイコロの出目の表示
-      dice.disp_the_dice(@number_the_dice)
+      dice.disp_dice(@number_dice)
       #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
-      advance_the_piece(map, player)
+      advance_piece(map, player)
       #プレイヤーが止まったマスのギミック
       map.activate_gimmick_player(player)
       #プレイヤーの現在地を表示、ゴール判定
@@ -33,7 +33,7 @@ class Sugoroku
         break
       end
       #CPUがサイコロを振り、出目が表示され、進んだマスを表示
-      cpu_roll_the_dice(computer, map, dice)
+      cpu_roll_dice(computer, map, dice)
       #CPUが止まったマスのギミック
       map.activate_gimmick_computer(computer)
       #CPUの現在地を表示、ゴール判定
@@ -42,21 +42,21 @@ class Sugoroku
   end
   
   #プレイヤーのサイコロを振らす処理
-  def player_roll_the_dice(player, dice)
+  def player_roll_dice(player, dice)
     print "あなたの番です。1から6の好きな数字を選んでください。"
     while true
       break if (1..6).include?(gets.to_i)
       puts "1~6の番号を入力してください。"
     end
-      @number_the_dice = rand(1..6)
-      player.position += @number_the_dice
+      @number_dice = rand(1..6)
+      player.position += @number_dice
   end
 
   #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
-  def advance_the_piece(map, player)
+  def advance_piece(map, player)
       puts <<~text
-      サイコロの目は#{@number_the_dice}です。
-      #{@number_the_dice}マス進みます。
+      サイコロの目は#{@number_dice}です。
+      #{@number_dice}マス進みます。
       
       text
       if player.position < map.max_square
@@ -92,19 +92,19 @@ class Sugoroku
   end
 
   #CPUがサイコロを振り、出目が表示され、進んだマスを表示
-  def cpu_roll_the_dice(computer, map, dice)
+  def cpu_roll_dice(computer, map, dice)
       puts "CPUがサイコロを振ります"
-      @number_the_dice = rand(1..6)
+      @number_dice = rand(1..6)
 
-      dice.disp_the_dice(@number_the_dice)
+      dice.disp_dice(@number_dice)
       
       puts <<~text
-      サイコロの目は#{@number_the_dice}です。
-      #{@number_the_dice}マス進みます。
+      サイコロの目は#{@number_dice}です。
+      #{@number_dice}マス進みます。
       
       text
 
-      computer.position += @number_the_dice
+      computer.position += @number_dice
       if computer.position < map.max_square
        map.disp_computer_square(computer)
        puts ""
