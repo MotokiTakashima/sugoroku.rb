@@ -28,7 +28,7 @@ class Sugoroku
       #プレイヤーが止まったマスのギミック
       map.activate_gimmick_player(player)
       #プレイヤーの現在地を表示、ゴール判定
-      current_square_player(map, player)
+      show_square_player(map, player)
       if player.position == map.max_square
         break
       end
@@ -37,7 +37,7 @@ class Sugoroku
       #CPUが止まったマスのギミック
       map.activate_gimmick_computer(computer)
       #CPUの現在地を表示、ゴール判定
-      current_square_computer(map, computer)
+      show_square_computer(map, computer)
     end
   end
   
@@ -69,7 +69,7 @@ class Sugoroku
 
   
   #プレイヤーの現在地を表示、ゴール判定
-  def current_square_player(map, player)
+  def show_square_player(map, player)
     if player.position < map.max_square
       puts <<~text
       現在、#{player.position}マス目です。
@@ -114,7 +114,7 @@ class Sugoroku
   end
 
   #CPUの現在地を表示、ゴール判定
-  def current_square_computer(map, computer)
+  def show_square_computer(map, computer)
     if computer.position < map.max_square
       puts <<~text
       現在CPUは、#{computer.position}マス目です。
