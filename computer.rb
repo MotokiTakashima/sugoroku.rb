@@ -1,3 +1,3 @@
-require "./position"
-class Computer < Position
+require "./character"
+class Computer < Character
 end

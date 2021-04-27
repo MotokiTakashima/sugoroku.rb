@@ -1,4 +1,4 @@
-class Position
+class Character
 
   attr_accessor :position
 

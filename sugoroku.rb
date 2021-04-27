@@ -20,7 +20,7 @@ class Sugoroku
   def start(player, computer, map, dice)
     while player.position < map.max_square && computer.position < map.max_square
       #プレイヤーのサイコロを振らす処理
-      player_roll_dice(player, dice)
+      player.roll_dice(dice)
       #サイコロの出目の表示
       dice.disp_dice(@number_dice)
       #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
@@ -41,16 +41,6 @@ class Sugoroku
     end
   end
   
-  #プレイヤーのサイコロを振らす処理
-  def player_roll_dice(player, dice)
-    print "あなたの番です。1から6の好きな数字を選んでください。"
-    while true
-      break if (1..6).include?(gets.to_i)
-      puts "1~6の番号を入力してください。"
-    end
-      @number_dice = rand(1..6)
-      player.position += @number_dice
-  end
 
   #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
   def move_forward(map, player)
