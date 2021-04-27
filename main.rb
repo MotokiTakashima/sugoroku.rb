@@ -1,9 +1,9 @@
 require "pry"
 require "./sugoroku"
 
-map = Map.new(masu: 30)
-player = Player.new(me: 0)
-computer = Computer.new(cpu: 0)
+map = Map.new(max_square: 30)
+player = Player.new(0)
+computer = Computer.new(0)
 dice = Dice.new
 sugoroku = Sugoroku.new
 

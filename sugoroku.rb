@@ -12,13 +12,13 @@ class Sugoroku
     |         すごろくゲーム         |
     |                                |
     ----------------------------------
-    ゴールまで#{map.masu}マスです
+    ゴールまで#{map.max_square}マスです
     text
     
   end
 
   def start(player, computer, map, dice)
-    while player.me < map.masu && computer.cpu < map.masu
+    while player.position < map.max_square && computer.position < map.max_square
       #プレイヤーのサイコロを振らす処理
       player_roll_the_dice(player, dice)
       #サイコロの出目の表示
@@ -29,7 +29,7 @@ class Sugoroku
       map.active_gimikku_player(player)
       #プレイヤーの現在地を表示、ゴール判定
       current_square_player(map, player)
-      if player.me == map.masu
+      if player.position == map.max_square
         break
       end
       #CPUがサイコロを振り、出目が表示され、進んだマスを表示
@@ -49,7 +49,7 @@ class Sugoroku
       puts "1~6の番号を入力してください。"
     end
       @number_the_dice = rand(1..6)
-      player.me += @number_the_dice
+      player.position += @number_the_dice
   end
 
   #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
@@ -59,34 +59,34 @@ class Sugoroku
       #{@number_the_dice}マス進みます。
       
       text
-      if player.me < map.masu
-       map.disp_player_masu(player)
+      if player.position < map.max_square
+       map.disp_player_square(player)
        puts ""
       end
-      puts "#{player.me}マス目にとまりました。"
+      puts "#{player.position}マス目にとまりました。"
   end
 
 
   
   #プレイヤーの現在地を表示、ゴール判定
   def current_square_player(map, player)
-    if player.me < map.masu
+    if player.position < map.max_square
       puts <<~text
-      現在、#{player.me}マス目です。
+      現在、#{player.position}マス目です。
 
       text
-    elsif player.me > map.masu
+    elsif player.position > map.max_square
       puts <<~text
       ちょうどでなければゴールできません
-      #{player.me - map.masu}マス戻ります。
-      現在、#{map.masu - (player.me - map.masu)}マス目です。
+      #{player.position - map.max_square}マス戻ります。
+      現在、#{map.max_square - (player.position - map.max_square)}マス目です。
 
       text
-      player.me = map.masu - (player.me - map.masu)
-      if player.me < map.masu
-       map.disp_player_masu(player)
+      player.position = map.max_square - (player.position - map.max_square)
+      if player.position < map.max_square
+       map.disp_player_square(player)
       end
-    elsif player.me == map.masu
+    elsif player.position == map.max_square
       puts "ゴールしました！！！あなたの勝ちです！！"
     end
   end
@@ -104,34 +104,34 @@ class Sugoroku
       
       text
 
-      computer.cpu += @number_the_dice
-      if computer.cpu < map.masu
-       map.disp_computer_masu(computer)
+      computer.position += @number_the_dice
+      if computer.position < map.max_square
+       map.disp_computer_square(computer)
        puts ""
       end
-      puts "CPUは、#{computer.cpu}マス目にとまりました。"
+      puts "CPUは、#{computer.position}マス目にとまりました。"
       puts ""
   end
 
   #CPUの現在地を表示、ゴール判定
   def current_square_computer(map, computer)
-    if computer.cpu < map.masu
+    if computer.position < map.max_square
       puts <<~text
-      現在CPUは、#{computer.cpu}マス目です。
+      現在CPUは、#{computer.position}マス目です。
       =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
       text
-    elsif computer.cpu > map.masu
+    elsif computer.position > map.max_square
       puts <<~text
       ちょうどでなければゴールできません
-      #{computer.cpu - map.masu}マス戻ります。
+      #{computer.position - map.max_square}マス戻ります。
       text
-      computer.cpu = map.masu - (computer.cpu - map.masu)
-      map.disp_computer_masu(computer)
+      computer.position = map.max_square - (computer.position - map.max_square)
+      map.disp_computer_square(computer)
       puts <<~text
-      現在、#{map.masu - (computer.cpu - map.masu)}マス目です。
+      現在、#{map.max_square - (computer.position - map.max_square)}マス目です。
       =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
       text
-    elsif computer.cpu == map.masu
+    elsif computer.position == map.max_square
       puts "CPUがゴールしました。あなたの負けです。"
     end
   end

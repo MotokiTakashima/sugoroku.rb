@@ -1,8 +1,3 @@
-class Computer
-  attr_accessor :cpu
-
-  def initialize(cpu:)
-    @cpu = cpu
-  end
-  
+require "./position"
+class Computer < Position
 end

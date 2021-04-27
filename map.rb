@@ -2,205 +2,205 @@ require "./player"
 require "./computer"
 
 class Map
-  attr_reader :masu
+  attr_reader :max_square
 
-  def initialize(masu:)
-    @masu = masu
+  def initialize(max_square:)
+    @max_square = max_square
   end
   
   #プレイヤーの現在地
-  def disp_player_masu(player)
-    puts "□ " * (player.me - 1) + "=■= " + "□ " * (@masu - player.me)
+  def disp_player_square(player)
+    puts "□ " * (player.position - 1) + "=■= " + "□ " * (@max_square - player.position)
   end
 
   #CPUの現在地
-  def disp_computer_masu(computer)
-    puts "□ " * (computer.cpu - 1) + "=▲= " + "□ " * (@masu - computer.cpu)
+  def disp_computer_square(computer)
+    puts "□ " * (computer.position - 1) + "=▲= " + "□ " * (@max_square - computer.position)
   end
 
   #プレイヤーが止まったマスのギミック
   def active_gimikku_player(player)
-       if player.me == 1
+       if player.position == 1
         puts <<~text
          ---------------------------
          |     ==2マスすすむ==     |
          ---------------------------
          text
-        player.me += 2
-        disp_player_masu(player)
-       elsif player.me == 3
+        player.position += 2
+        disp_player_square(player)
+       elsif player.position == 3
         puts <<~text
          ---------------------------
          |      ==2マス戻る==      |
          ---------------------------
          text
-        player.me -= 2
-        disp_player_masu(player)
-       elsif player.me == 5
+        player.position -= 2
+        disp_player_square(player)
+       elsif player.position == 5
         puts <<~text
          ---------------------------
          |    ==スタートに戻る==   |
          ---------------------------
          スタートに戻りました。
          text
-        player.me -= 5
-       elsif player.me == 7
+        player.position -= 5
+       elsif player.position == 7
         puts <<~text
          ---------------------------
          |     ==2マスすすむ==     |
          ---------------------------
          text
-        player.me += 2
-        disp_player_masu(player)
-       elsif player.me == 10
+        player.position += 2
+        disp_player_square(player)
+       elsif player.position == 10
         puts <<~text
          ---------------------------
          |     ==5マスすすむ==     |
          ---------------------------
          text
-        player.me += 5
-        disp_player_masu(player)
-       elsif player.me == 14
+        player.position += 5
+        disp_player_square(player)
+       elsif player.position == 14
         puts <<~text
          ---------------------------
          |      ==7マス戻る==      |
          ---------------------------
          text
-        player.me -= 7
-        disp_player_masu(player)
-       elsif player.me == 17
+        player.position -= 7
+        disp_player_square(player)
+       elsif player.position == 17
         puts <<~text
          ---------------------------
          |      ==3マス戻る==      |
          ---------------------------
          text
-        player.me -= 3
-        disp_player_masu(player)
-       elsif player.me == 20
+        player.position -= 3
+        disp_player_square(player)
+       elsif player.position == 20
         puts <<~text
          ---------------------------
          |    ==スタートに戻る==   |
          ---------------------------
          スタートに戻りました。
          text
-        player.me -= 20
-       elsif player.me == 26
+        player.position -= 20
+       elsif player.position == 26
         puts <<~text
          ---------------------------
          |    ==スタートに戻る==   |
          ---------------------------
          スタートに戻りました。
          text
-        player.me -= 26
-       elsif player.me == 28
+        player.position -= 26
+       elsif player.position == 28
         puts <<~text
          ---------------------------
          |     ==10マスに戻る==    |
          ---------------------------
          text
-        player.me -= 10
-        disp_player_masu(player)
-       elsif player.me == 29
+        player.position -= 10
+        disp_player_square(player)
+       elsif player.position == 29
         puts <<~text
          ---------------------------
          |    ==スタートに戻る==   |
          ---------------------------
          スタートに戻りました。
          text
-        player.me -= 29
+        player.position -= 29
        end
   end
 
   #CPUが止まったマスのギミック
   def active_gimikku_computer(computer)
-       if computer.cpu == 1
+       if computer.position == 1
         puts <<~text
          ---------------------------
          |     ==2マスすすむ==     |
          ---------------------------
          text
-        computer.cpu += 2
-        disp_computer_masu(computer)
-       elsif computer.cpu == 3
+        computer.position += 2
+        disp_computer_square(computer)
+       elsif computer.position == 3
         puts <<~text
          ---------------------------
          |      ==2マス戻る==      |
          ---------------------------
          text
-        computer.cpu -= 2
-        disp_computer_masu(computer)
-       elsif computer.cpu == 5
+        computer.position -= 2
+        disp_computer_square(computer)
+       elsif computer.position == 5
         puts <<~text
          ---------------------------
          |    ==スタートに戻る==   |
          ---------------------------
          スタートに戻りました。
          text
-        computer.cpu -= 5
-       elsif computer.cpu == 7
+        computer.position -= 5
+       elsif computer.position == 7
         puts <<~text
          ---------------------------
          |     ==2マスすすむ==     |
          ---------------------------
          text
-        computer.cpu += 2
-        disp_computer_masu(computer)
-       elsif computer.cpu == 10
+        computer.position += 2
+        disp_computer_square(computer)
+       elsif computer.position == 10
         puts <<~text
          ---------------------------
          |     ==5マスすすむ==     |
          ---------------------------
          text
-        computer.cpu += 5
-        disp_computer_masu(computer)
-       elsif computer.cpu == 14
+        computer.position += 5
+        disp_computer_square(computer)
+       elsif computer.position == 14
         puts <<~text
          ---------------------------
          |      ==7マス戻る==      |
          ---------------------------
          text
-        computer.cpu -= 7
-        disp_computer_masu(computer)
-       elsif computer.cpu == 17
+        computer.position -= 7
+        disp_computer_square(computer)
+       elsif computer.position == 17
         puts <<~text
          ---------------------------
          |      ==3マス戻る==      |
          ---------------------------
          text
-        computer.cpu -= 3
-        disp_computer_masu(computer)
-       elsif computer.cpu == 20
+        computer.position -= 3
+        disp_computer_square(computer)
+       elsif computer.position == 20
         puts <<~text
          ---------------------------
          |    ==スタートに戻る==   |
          ---------------------------
          スタートに戻りました。
          text
-        computer.cpu -= 20
-       elsif computer.cpu == 26
+        computer.position -= 20
+       elsif computer.position == 26
         puts <<~text
          ---------------------------
          |    ==スタートに戻る==   |
          ---------------------------
          スタートに戻りました。
          text
-        computer.cpu -= 26
-       elsif computer.cpu == 28
+        computer.position -= 26
+       elsif computer.position == 28
         puts <<~text
          ---------------------------
          |     ==10マスに戻る==    |
          ---------------------------
          text
-        computer.cpu -= 10
-        disp_computer_masu(computer)
-       elsif computer.cpu == 29
+        computer.position -= 10
+        disp_computer_square(computer)
+       elsif computer.position == 29
         puts <<~text
          ---------------------------
          |    ==スタートに戻る==   |
          ---------------------------
          スタートに戻りました。
          text
-        computer.cpu -= 29
+        computer.position -= 29
        end
   end
 end
