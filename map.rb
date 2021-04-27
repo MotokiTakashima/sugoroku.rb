@@ -19,7 +19,7 @@ class Map
   end
 
   #プレイヤーが止まったマスのギミック
-  def active_gimikku_player(player)
+  def activate_gimmick_player(player)
        if player.position == 1
         puts <<~text
          ---------------------------
@@ -112,7 +112,7 @@ class Map
   end
 
   #CPUが止まったマスのギミック
-  def active_gimikku_computer(computer)
+  def activate_gimmick_computer(computer)
        if computer.position == 1
         puts <<~text
          ---------------------------
