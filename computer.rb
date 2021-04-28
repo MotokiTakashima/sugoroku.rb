@@ -37,7 +37,7 @@ class Computer < Character
       @position = map.max_square - (@position - map.max_square)
       disp_square(map)
       puts <<~text
-             現在、#{map.max_square - (@position - map.max_square)}マス目です。
+             現在、#{@position}マス目です。
       =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
            text
     elsif @position == map.max_square
