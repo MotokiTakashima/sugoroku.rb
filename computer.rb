@@ -13,14 +13,14 @@ class Computer < Character
     #{@number_dice}マス進みます。
     
     text
-    
     @position += @number_dice
     if @position < map.max_square
       disp_square(map)
       puts ""
+      puts "#{@position}マス目にとまりました。"
+    elsif @position > map.max_square
+      puts "出た目の数がゴールを#{@position - map.max_square}マス分超えました。"
     end
-    puts "CPUは、#{@position}マス目にとまりました。"
-    puts ""
   end
     
     def show_square(map)

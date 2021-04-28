@@ -3,11 +3,8 @@ require "./dice"
 class Player < Character
 
   def roll_dice(dice)
-    print "あなたの番です。1から6の好きな数字を選んでください。"
-    while true
-      break if (1..6).include?(gets.to_i)
-      puts "1~6の番号を入力してください。"
-    end
+    print "あなたの番です。エンターキーを押してください"
+    @number_dice = gets.to_i
     @number_dice = rand(1..6)
   end
 
@@ -21,8 +18,10 @@ class Player < Character
     if @position < map.max_square
       disp_square(map)
       puts ""
+      puts "#{@position}マス目にとまりました。"
+    elsif @position > map.max_square
+      puts "出た目の数がゴールを#{@position - map.max_square}マス分超えました。"
     end
-    puts "#{@position}マス目にとまりました。"
   end
 
   def show_square(map)
