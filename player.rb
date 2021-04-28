@@ -11,6 +11,19 @@ class Player < Character
     @number_dice = rand(1..6)
     @position += @number_dice
   end
+
+  def move_forward(map)
+    puts <<~text
+           サイコロの目は#{@number_dice}です。
+      #{@number_dice}マス進みます。
+      
+         text
+    if @position < map.max_square
+      disp_square(map)
+      puts ""
+    end
+    puts "#{@position}マス目にとまりました。"
+  end
   
   def disp_square(map)
     puts "□ " * (@position - 1) + "=■= " + "□ " * (map.max_square - @position)

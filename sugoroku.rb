@@ -24,7 +24,7 @@ class Sugoroku
       #サイコロの出目の表示
       dice.disp_dice(player, computer)
       #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
-      move_forward(map, player)
+      player.move_forward(map)
       #プレイヤーが止まったマスのギミック
       map.activate_gimmick_player(player, map)
       #プレイヤーの現在地を表示、ゴール判定
@@ -42,18 +42,7 @@ class Sugoroku
   end
   
 
-  def move_forward(map, player)
-      puts <<~text
-      サイコロの目は#{@number_dice}です。
-      #{@number_dice}マス進みます。
-      
-      text
-      if player.position < map.max_square
-       player.disp_square(map)
-       puts ""
-      end
-      puts "#{player.position}マス目にとまりました。"
-  end
+  
 
   def show_square_player(map, player)
     if player.position < map.max_square
