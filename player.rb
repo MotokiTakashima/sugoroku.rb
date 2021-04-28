@@ -24,6 +24,28 @@ class Player < Character
     end
     puts "#{@position}マス目にとまりました。"
   end
+
+  def show_square(map)
+    if @position < map.max_square
+      puts <<~text
+             現在、#{@position}マス目です。
+
+           text
+    elsif @position > map.max_square
+      puts <<~text
+             ちょうどでなければゴールできません
+             #{@position - map.max_square}マス戻ります。
+      現在、#{map.max_square - (@position - map.max_square)}マス目です。
+
+           text
+      @position = map.max_square - (@position - map.max_square)
+      if @position < map.max_square
+        disp_square(map)
+      end
+    elsif @position == map.max_square
+      puts "ゴールしました！！！あなたの勝ちです！！"
+    end
+  end
   
   def disp_square(map)
     puts "□ " * (@position - 1) + "=■= " + "□ " * (map.max_square - @position)

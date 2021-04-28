@@ -28,7 +28,7 @@ class Sugoroku
       #プレイヤーが止まったマスのギミック
       map.activate_gimmick_player(player, map)
       #プレイヤーの現在地を表示、ゴール判定
-      show_square_player(map, player)
+      player.show_square(map)
       if player.position == map.max_square
         break
       end
@@ -38,31 +38,6 @@ class Sugoroku
       map.activate_gimmick_computer(computer, map)
       #CPUの現在地を表示、ゴール判定
       show_square_computer(map, computer)
-    end
-  end
-  
-
-  
-
-  def show_square_player(map, player)
-    if player.position < map.max_square
-      puts <<~text
-      現在、#{player.position}マス目です。
-
-      text
-    elsif player.position > map.max_square
-      puts <<~text
-      ちょうどでなければゴールできません
-      #{player.position - map.max_square}マス戻ります。
-      現在、#{map.max_square - (player.position - map.max_square)}マス目です。
-
-      text
-      player.position = map.max_square - (player.position - map.max_square)
-      if player.position < map.max_square
-       player.disp_square(map)
-      end
-    elsif player.position == map.max_square
-      puts "ゴールしました！！！あなたの勝ちです！！"
     end
   end
 
