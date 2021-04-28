@@ -1,5 +1,6 @@
 require "./player"
 require "./computer"
+require "./character"
 
 class Map
   attr_reader :max_square

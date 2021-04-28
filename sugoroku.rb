@@ -22,7 +22,7 @@ class Sugoroku
       #プレイヤーのサイコロを振らす処理
       player.roll_dice(dice)
       #サイコロの出目の表示
-      dice.disp_dice(@number_dice)
+      dice.disp_dice(player, computer)
       #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
       move_forward(map, player)
       #プレイヤーが止まったマスのギミック
@@ -33,7 +33,7 @@ class Sugoroku
         break
       end
       #CPUがサイコロを振り、出目が表示され、進んだマスを表示
-      cpu_roll_dice(computer, map, dice)
+      cpu_roll_dice(player, computer, map, dice)
       #CPUが止まったマスのギミック
       map.activate_gimmick_computer(computer, map)
       #CPUの現在地を表示、ゴール判定
@@ -82,11 +82,11 @@ class Sugoroku
   end
 
   #CPUがサイコロを振り、出目が表示され、進んだマスを表示
-  def cpu_roll_dice(computer, map, dice)
+  def cpu_roll_dice(player, computer, map, dice)
       puts "CPUがサイコロを振ります"
       @number_dice = rand(1..6)
 
-      dice.disp_dice(@number_dice)
+      dice.disp_dice(player, computer)
       
       puts <<~text
       サイコロの目は#{@number_dice}です。

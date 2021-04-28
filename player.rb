@@ -18,6 +18,3 @@ class Player < Character
     puts "□ " * (@position - 1) + "=■= " + "□ " * (map.max_square - @position)
   end
 end
-
-player = Player.new(0)
-puts player.position

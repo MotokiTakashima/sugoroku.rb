@@ -1,10 +1,12 @@
+require "./player"
+require "./computer"
+require "./character"
+
 class Dice
 
-  attr_reader :number_dice
-
   #サイコロの出目の表示
-  def disp_dice(number_dice)
-    if number_dice == 1
+  def disp_dice(player, computer)
+    if @number_dice == 1
       puts <<~text
              ---------
              |       |
@@ -12,7 +14,7 @@ class Dice
              |       |
              ---------            
            text
-    elsif number_dice == 2
+    elsif @number_dice == 2
       puts <<~text             
              ---------
              | *     |
@@ -20,7 +22,7 @@ class Dice
              |     * |
              ---------            
            text
-    elsif number_dice == 3
+    elsif @number_dice == 3
       puts <<~text           
              ---------
              | *     |
@@ -28,7 +30,7 @@ class Dice
              |     * |
              ---------           
            text
-    elsif number_dice == 4
+    elsif @number_dice == 4
       puts <<~text         
              ---------
              | *   * |
@@ -36,7 +38,7 @@ class Dice
              | *   * |
              ---------           
            text
-    elsif number_dice == 5
+    elsif @number_dice == 5
       puts <<~text            
              ---------
              | *   * |
