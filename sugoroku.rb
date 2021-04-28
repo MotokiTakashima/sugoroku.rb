@@ -37,30 +37,7 @@ class Sugoroku
       #CPUが止まったマスのギミック
       map.activate_gimmick_computer(computer, map)
       #CPUの現在地を表示、ゴール判定
-      show_square_computer(map, computer)
+      computer.show_square(map)
     end
   end
-
-  def show_square_computer(map, computer)
-    if computer.position < map.max_square
-      puts <<~text
-      現在CPUは、#{computer.position}マス目です。
-      =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
-      text
-    elsif computer.position > map.max_square
-      puts <<~text
-      ちょうどでなければゴールできません
-      #{computer.position - map.max_square}マス戻ります。
-      text
-      computer.position = map.max_square - (computer.position - map.max_square)
-      computer.disp_square(map)
-      puts <<~text
-      現在、#{map.max_square - (computer.position - map.max_square)}マス目です。
-      =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
-      text
-    elsif computer.position == map.max_square
-      puts "CPUがゴールしました。あなたの負けです。"
-    end
-  end
-  
 end
