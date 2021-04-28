@@ -23,7 +23,7 @@ class Sugoroku
       player.roll_dice(dice)
       #サイコロの出目の表示
       dice.disp_dice(player, computer)
-      #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
+      #プレイヤーの進んだ位置を表示
       player.move_forward(map)
       #プレイヤーが止まったマスのギミック
       map.activate_gimmick_player(player, map)
@@ -32,7 +32,7 @@ class Sugoroku
       if player.position == map.max_square
         break
       end
-      #CPUがサイコロを振り、出目が表示され、進んだマスを表示
+      #CPUがサイコロを振り、進んだマスを表示
       computer.roll_dice(player, map, dice, computer)
       #CPUが止まったマスのギミック
       map.activate_gimmick_computer(computer, map)

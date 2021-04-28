@@ -9,7 +9,6 @@ class Player < Character
       puts "1~6の番号を入力してください。"
     end
     @number_dice = rand(1..6)
-    @position += @number_dice
   end
 
   def move_forward(map)
@@ -18,6 +17,7 @@ class Player < Character
       #{@number_dice}マス進みます。
       
          text
+    @position += @number_dice
     if @position < map.max_square
       disp_square(map)
       puts ""
@@ -35,13 +35,10 @@ class Player < Character
       puts <<~text
              ちょうどでなければゴールできません
              #{@position - map.max_square}マス戻ります。
-      現在、#{map.max_square - (@position - map.max_square)}マス目です。
-
-           text
+             text
       @position = map.max_square - (@position - map.max_square)
-      if @position < map.max_square
-        disp_square(map)
-      end
+      puts "現在、#{@position}マス目です。"
+      disp_square(map)
     elsif @position == map.max_square
       puts "ゴールしました！！！あなたの勝ちです！！"
     end
