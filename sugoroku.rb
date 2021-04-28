@@ -35,7 +35,7 @@ class Sugoroku
       #CPUがサイコロを振り、出目が表示され、進んだマスを表示
       cpu_roll_dice(computer, map, dice)
       #CPUが止まったマスのギミック
-      map.activate_gimmick_computer(computer)
+      map.activate_gimmick_computer(computer, map)
       #CPUの現在地を表示、ゴール判定
       show_square_computer(map, computer)
     end
@@ -96,7 +96,7 @@ class Sugoroku
 
       computer.position += @number_dice
       if computer.position < map.max_square
-       map.disp_computer_square(computer)
+       computer.disp_square(map)
        puts ""
       end
       puts "CPUは、#{computer.position}マス目にとまりました。"
@@ -116,7 +116,7 @@ class Sugoroku
       #{computer.position - map.max_square}マス戻ります。
       text
       computer.position = map.max_square - (computer.position - map.max_square)
-      map.disp_computer_square(computer)
+      computer.disp_square(map)
       puts <<~text
       現在、#{map.max_square - (computer.position - map.max_square)}マス目です。
       =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*

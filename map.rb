@@ -9,10 +9,6 @@ class Map
   end
   
 
-  #CPUの現在地
-  def disp_computer_square(computer)
-    puts "□ " * (computer.position - 1) + "=▲= " + "□ " * (@max_square - computer.position)
-  end
 
   #プレイヤーが止まったマスのギミック
   def activate_gimmick_player(player, map)
@@ -108,7 +104,7 @@ class Map
   end
 
   #CPUが止まったマスのギミック
-  def activate_gimmick_computer(computer)
+  def activate_gimmick_computer(computer, map)
        if computer.position == 1
         puts <<~text
          ---------------------------
@@ -116,7 +112,7 @@ class Map
          ---------------------------
          text
         computer.position += 2
-        disp_computer_square(computer)
+      computer.disp_square(map)
        elsif computer.position == 3
         puts <<~text
          ---------------------------
@@ -124,7 +120,7 @@ class Map
          ---------------------------
          text
         computer.position -= 2
-        disp_computer_square(computer)
+      computer.disp_square(map)
        elsif computer.position == 5
         puts <<~text
          ---------------------------
@@ -140,7 +136,7 @@ class Map
          ---------------------------
          text
         computer.position += 2
-        disp_computer_square(computer)
+      computer.disp_square(map)
        elsif computer.position == 10
         puts <<~text
          ---------------------------
@@ -148,7 +144,7 @@ class Map
          ---------------------------
          text
         computer.position += 5
-        disp_computer_square(computer)
+      computer.disp_square(map)
        elsif computer.position == 14
         puts <<~text
          ---------------------------
@@ -156,7 +152,7 @@ class Map
          ---------------------------
          text
         computer.position -= 7
-        disp_computer_square(computer)
+      computer.disp_square(map)
        elsif computer.position == 17
         puts <<~text
          ---------------------------
@@ -164,7 +160,7 @@ class Map
          ---------------------------
          text
         computer.position -= 3
-        disp_computer_square(computer)
+      computer.disp_square(map)
        elsif computer.position == 20
         puts <<~text
          ---------------------------
@@ -188,7 +184,7 @@ class Map
          ---------------------------
          text
         computer.position -= 10
-        disp_computer_square(computer)
+      computer.disp_square(map)
        elsif computer.position == 29
         puts <<~text
          ---------------------------
