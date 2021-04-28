@@ -8,10 +8,6 @@ class Map
     @max_square = max_square
   end
   
-  #プレイヤーの現在地
-  def disp_player_square(player)
-    puts "□ " * (player.position - 1) + "=■= " + "□ " * (@max_square - player.position)
-  end
 
   #CPUの現在地
   def disp_computer_square(computer)
@@ -19,7 +15,7 @@ class Map
   end
 
   #プレイヤーが止まったマスのギミック
-  def activate_gimmick_player(player)
+  def activate_gimmick_player(player, map)
        if player.position == 1
         puts <<~text
          ---------------------------
@@ -27,7 +23,7 @@ class Map
          ---------------------------
          text
         player.position += 2
-        disp_player_square(player)
+        player.disp_square(map)
        elsif player.position == 3
         puts <<~text
          ---------------------------
@@ -35,7 +31,7 @@ class Map
          ---------------------------
          text
         player.position -= 2
-        disp_player_square(player)
+        player.disp_square(map)
        elsif player.position == 5
         puts <<~text
          ---------------------------
@@ -51,7 +47,7 @@ class Map
          ---------------------------
          text
         player.position += 2
-        disp_player_square(player)
+        player.disp_square(map)
        elsif player.position == 10
         puts <<~text
          ---------------------------
@@ -59,7 +55,7 @@ class Map
          ---------------------------
          text
         player.position += 5
-        disp_player_square(player)
+        player.disp_square(map)
        elsif player.position == 14
         puts <<~text
          ---------------------------
@@ -67,7 +63,7 @@ class Map
          ---------------------------
          text
         player.position -= 7
-        disp_player_square(player)
+        player.disp_square(map)
        elsif player.position == 17
         puts <<~text
          ---------------------------
@@ -75,7 +71,7 @@ class Map
          ---------------------------
          text
         player.position -= 3
-        disp_player_square(player)
+        player.disp_square(map)
        elsif player.position == 20
         puts <<~text
          ---------------------------
@@ -99,7 +95,7 @@ class Map
          ---------------------------
          text
         player.position -= 10
-        disp_player_square(player)
+      player.disp_square(map)
        elsif player.position == 29
         puts <<~text
          ---------------------------

@@ -26,7 +26,7 @@ class Sugoroku
       #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
       move_forward(map, player)
       #プレイヤーが止まったマスのギミック
-      map.activate_gimmick_player(player)
+      map.activate_gimmick_player(player, map)
       #プレイヤーの現在地を表示、ゴール判定
       show_square_player(map, player)
       if player.position == map.max_square
@@ -50,7 +50,7 @@ class Sugoroku
       
       text
       if player.position < map.max_square
-       map.disp_player_square(player)
+       player.disp_square(map)
        puts ""
       end
       puts "#{player.position}マス目にとまりました。"
@@ -74,7 +74,7 @@ class Sugoroku
       text
       player.position = map.max_square - (player.position - map.max_square)
       if player.position < map.max_square
-       map.disp_player_square(player)
+       player.disp_square(map)
       end
     elsif player.position == map.max_square
       puts "ゴールしました！！！あなたの勝ちです！！"
