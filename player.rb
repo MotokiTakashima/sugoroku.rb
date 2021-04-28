@@ -2,7 +2,6 @@ require "./character"
 require "./dice"
 class Player < Character
 
-  #プレイヤーのサイコロを振らす処理
   def roll_dice(dice)
     print "あなたの番です。1から6の好きな数字を選んでください。"
     while true
@@ -13,7 +12,6 @@ class Player < Character
     @position += @number_dice
   end
   
-  #PLAYERの現在地
   def disp_square(map)
     puts "□ " * (@position - 1) + "=■= " + "□ " * (map.max_square - @position)
   end

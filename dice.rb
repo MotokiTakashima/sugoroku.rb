@@ -4,7 +4,6 @@ require "./character"
 
 class Dice
 
-  #サイコロの出目の表示
   def disp_dice(player, computer)
     if @number_dice == 1
       puts <<~text

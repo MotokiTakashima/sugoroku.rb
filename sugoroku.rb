@@ -42,7 +42,6 @@ class Sugoroku
   end
   
 
-  #プレイヤーのサイコロの出目が表示され、進んだ位置を表示
   def move_forward(map, player)
       puts <<~text
       サイコロの目は#{@number_dice}です。
@@ -56,9 +55,6 @@ class Sugoroku
       puts "#{player.position}マス目にとまりました。"
   end
 
-
-  
-  #プレイヤーの現在地を表示、ゴール判定
   def show_square_player(map, player)
     if player.position < map.max_square
       puts <<~text
@@ -81,7 +77,6 @@ class Sugoroku
     end
   end
 
-  #CPUがサイコロを振り、出目が表示され、進んだマスを表示
   def cpu_roll_dice(player, computer, map, dice)
       puts "CPUがサイコロを振ります"
       @number_dice = rand(1..6)
@@ -103,7 +98,6 @@ class Sugoroku
       puts ""
   end
 
-  #CPUの現在地を表示、ゴール判定
   def show_square_computer(map, computer)
     if computer.position < map.max_square
       puts <<~text

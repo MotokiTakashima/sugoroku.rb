@@ -9,9 +9,6 @@ class Map
     @max_square = max_square
   end
   
-
-
-  #プレイヤーが止まったマスのギミック
   def activate_gimmick_player(player, map)
        if player.position == 1
         puts <<~text
@@ -104,7 +101,6 @@ class Map
        end
   end
 
-  #CPUが止まったマスのギミック
   def activate_gimmick_computer(computer, map)
        if computer.position == 1
         puts <<~text
