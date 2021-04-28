@@ -33,33 +33,12 @@ class Sugoroku
         break
       end
       #CPUがサイコロを振り、出目が表示され、進んだマスを表示
-      cpu_roll_dice(player, computer, map, dice)
+      computer.roll_dice(player, map, dice, computer)
       #CPUが止まったマスのギミック
       map.activate_gimmick_computer(computer, map)
       #CPUの現在地を表示、ゴール判定
       show_square_computer(map, computer)
     end
-  end
-
-  def cpu_roll_dice(player, computer, map, dice)
-      puts "CPUがサイコロを振ります"
-      @number_dice = rand(1..6)
-
-      dice.disp_dice(player, computer)
-      
-      puts <<~text
-      サイコロの目は#{@number_dice}です。
-      #{@number_dice}マス進みます。
-      
-      text
-
-      computer.position += @number_dice
-      if computer.position < map.max_square
-       computer.disp_square(map)
-       puts ""
-      end
-      puts "CPUは、#{computer.position}マス目にとまりました。"
-      puts ""
   end
 
   def show_square_computer(map, computer)
