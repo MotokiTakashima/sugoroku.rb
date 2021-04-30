@@ -6,16 +6,17 @@ require "./character"
 
 class Sugoroku
 
-  def start(player, computer)
+  def start
 
     build_map
     build_dice
     build_character
     build_player
+    build_computer
 
     informaition
 
-    while @player.position < @map.max_square && computer.position < @map.max_square
+    while @player.position < @map.max_square && @computer.position < @map.max_square
       #プレイヤーのサイコロを振らす処理
       @player.roll_dice
       #サイコロの出目の表示
@@ -30,11 +31,11 @@ class Sugoroku
         break
       end
       #CPUがサイコロを振り、進んだマスを表示
-      computer.roll_dice(@player, @map, @dice, computer)
+      @computer.roll_dice(@player, @map, @dice, @computer)
       #CPUが止まったマスのギミック
-      @map.activate_gimmick(computer)
+      @map.activate_gimmick(@computer)
       #CPUの現在地を表示、ゴール判定
-      computer.show_square(@map)
+      @computer.show_square(@map)
     end
   end
 
@@ -65,5 +66,9 @@ class Sugoroku
 
   def build_player
     @player = Player.new(0, 0)
+  end
+
+  def build_computer
+    @computer = Computer.new(0, 0)
   end
 end
