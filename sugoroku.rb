@@ -6,10 +6,11 @@ require "./character"
 
 class Sugoroku
 
-  def start(player, computer, character)
+  def start(player, computer)
 
     build_map
     build_dice
+    build_character
 
     informaition
 
@@ -55,5 +56,9 @@ class Sugoroku
 
   def build_dice
     @dice = Dice.new
+  end
+
+  def build_character
+    @character = Character.new(0, 0)
   end
 end
