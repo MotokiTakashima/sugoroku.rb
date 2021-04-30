@@ -2,7 +2,7 @@ require "./character"
 require "./dice"
 class Player < Character
 
-  def roll_dice(dice)
+  def roll_dice
     print "あなたの番です。エンターキーを押してください"
     @number_dice = gets.to_i
     @number_dice = rand(1..6)

@@ -6,7 +6,7 @@ class Computer < Character
     puts "CPUがサイコロを振ります"
     @number_dice = rand(1..6)
 
-    dice.disp_dice(player, computer)
+    dice.disp_dice(computer)
     
     puts <<~text
     サイコロの目は#{@number_dice}です。
