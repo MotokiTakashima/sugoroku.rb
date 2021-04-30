@@ -4,7 +4,8 @@ require "./computer"
 class Dice
 
   def disp_dice(character)
-    if character.number_dice == 1
+    case character.number_dice
+    when 1
       puts <<~text
              ---------
              |       |
@@ -12,7 +13,7 @@ class Dice
              |       |
              ---------            
            text
-    elsif character.number_dice == 2
+    when 2
       puts <<~text             
              ---------
              | *     |
@@ -20,7 +21,7 @@ class Dice
              |     * |
              ---------            
            text
-    elsif character.number_dice == 3
+    when 3
       puts <<~text           
              ---------
              | *     |
@@ -28,7 +29,7 @@ class Dice
              |     * |
              ---------           
            text
-    elsif character.number_dice == 4
+    when 4
       puts <<~text         
              ---------
              | *   * |
@@ -36,7 +37,7 @@ class Dice
              | *   * |
              ---------           
            text
-    elsif character.number_dice == 5
+    when 5
       puts <<~text            
              ---------
              | *   * |
