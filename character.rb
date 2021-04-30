@@ -1,6 +1,7 @@
 class Character
 
-  attr_accessor :position, :number_dice
+  attr_accessor :position
+  attr_reader :number_dice
 
   def initialize(position, number_dice)
     @position = position

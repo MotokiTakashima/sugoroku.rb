@@ -2,12 +2,14 @@ require "./character"
 require "./dice"
 class Computer < Character
 
-  def roll_dice(player, map, dice, computer)
+  def roll_dice(dice, computer)
     puts "CPUがサイコロを振ります"
     @number_dice = rand(1..6)
 
     dice.disp_dice(computer)
-    
+  end
+
+  def move_forward(map)
     puts <<~text
     サイコロの目は#{@number_dice}です。
     #{@number_dice}マス進みます。
@@ -23,7 +25,7 @@ class Computer < Character
     end
   end
     
-    def show_square(map)
+  def show_square(map)
     if @position < map.max_square
       puts <<~text
              現在CPUは、#{@position}マス目です。

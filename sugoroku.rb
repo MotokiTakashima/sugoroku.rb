@@ -30,8 +30,10 @@ class Sugoroku
       if @player.position == @map.max_square
         break
       end
-      #CPUがサイコロを振り、進んだマスを表示
-      @computer.roll_dice(@player, @map, @dice, @computer)
+      #CPUがサイコロを振る
+      @computer.roll_dice(@dice, @computer)
+      #CPUが進んだマスを表示
+      @computer.move_forward(@map)
       #CPUが止まったマスのギミック
       @map.activate_gimmick(@computer)
       #CPUの現在地を表示、ゴール判定
