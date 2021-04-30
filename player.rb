@@ -11,7 +11,7 @@ class Player < Character
   def move_forward(map)
     puts <<~text
            サイコロの目は#{@number_dice}です。
-      #{@number_dice}マス進みます。
+           #{@number_dice}マス進みます。
       
          text
     @position += @number_dice
@@ -26,6 +26,7 @@ class Player < Character
 
   def show_square(map)
     if @position < map.max_square
+      change_position
       puts <<~text
              現在、#{@position}マス目です。
 

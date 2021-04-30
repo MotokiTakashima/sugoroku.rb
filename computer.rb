@@ -25,9 +25,10 @@ class Computer < Character
     
   def show_square(map)
     if @position < map.max_square
+      change_position
       puts <<~text
              現在CPUは、#{@position}マス目です。
-      =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
+             =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
            text
     elsif @position > map.max_square
       puts <<~text
@@ -38,7 +39,7 @@ class Computer < Character
       disp_square(map)
       puts <<~text
              現在、#{@position}マス目です。
-      =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
+             =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
            text
     end
   end
