@@ -48,6 +48,8 @@ class Sugoroku
     end
   end
 
+  private
+
   def informaition
     puts <<~text
            ----------------------------------
@@ -66,8 +68,6 @@ class Sugoroku
       puts "CPUがゴールしました。あなたの負けです。"
     end
   end
-
-  private
 
   def build_map
     @map = Map.new(30)
