@@ -2,11 +2,9 @@ require "./character"
 require "./dice"
 class Computer < Character
 
-  def roll_dice(dice, computer)
+  def roll_dice
     puts "CPUがサイコロを振ります"
     @number_dice = rand(1..6)
-
-    dice.disp_dice(computer)
   end
 
   def move_forward(map)
@@ -42,8 +40,6 @@ class Computer < Character
              現在、#{@position}マス目です。
       =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
            text
-    elsif @position == map.max_square
-      puts "CPUがゴールしました。あなたの負けです。"
     end
   end
 

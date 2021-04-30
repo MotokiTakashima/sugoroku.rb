@@ -16,7 +16,7 @@ class Sugoroku
 
     informaition
 
-    while @player.position < @map.max_square && @computer.position < @map.max_square
+    while @player.position < @map.max_square
       #プレイヤーのサイコロを振らす処理
       @player.roll_dice
       #サイコロの出目の表示
@@ -25,19 +25,26 @@ class Sugoroku
       @player.move_forward(@map)
       #プレイヤーが止まったマスのギミック
       @map.activate_gimmick(@player)
-      #プレイヤーの現在地を表示、ゴール判定
+      #プレイヤーの現在地を表示
       @player.show_square(@map)
+      #ゴール判定
       if @player.position == @map.max_square
-        break
+       make_judgment
+       break
       end
       #CPUがサイコロを振る
-      @computer.roll_dice(@dice, @computer)
+      @computer.roll_dice
+      @dice.disp_dice(@computer)
       #CPUが進んだマスを表示
       @computer.move_forward(@map)
       #CPUが止まったマスのギミック
       @map.activate_gimmick(@computer)
-      #CPUの現在地を表示、ゴール判定
+      #CPUの現在地を表示
       @computer.show_square(@map)
+      if @computer.position == @map.max_square
+        make_judgment
+        break
+      end
     end
   end
 
@@ -50,6 +57,14 @@ class Sugoroku
            ----------------------------------
            ゴールまで#{@map.max_square}マスです
          text
+  end
+
+  def make_judgment
+    if @player.position == @map.max_square
+      puts "ゴールしました！！！あなたの勝ちです！！"
+    elsif @computer.position == @map.max_square
+      puts "CPUがゴールしました。あなたの負けです。"
+    end
   end
 
   private

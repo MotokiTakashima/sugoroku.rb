@@ -38,8 +38,6 @@ class Player < Character
       @position = map.max_square - (@position - map.max_square)
       puts "現在、#{@position}マス目です。"
       disp_square(map)
-    elsif @position == map.max_square
-      puts "ゴールしました！！！あなたの勝ちです！！"
     end
   end
   
