@@ -1,5 +1,3 @@
-require "./character"
-require "./dice"
 class Player < Character
 
   def roll_dice

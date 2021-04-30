@@ -1,5 +1,3 @@
-require "./character"
-require "./dice"
 class Computer < Character
 
   def roll_dice

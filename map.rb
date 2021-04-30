@@ -1,5 +1,3 @@
-require "./player"
-require "./computer"
 require "./character"
 
 class Map < Character

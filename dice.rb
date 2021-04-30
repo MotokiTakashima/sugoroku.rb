@@ -1,5 +1,4 @@
-require "./player"
-require "./computer"
+require "./character"
 
 class Dice
 
