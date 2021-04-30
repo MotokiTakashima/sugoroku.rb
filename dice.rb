@@ -1,5 +1,3 @@
-require "./character"
-
 class Dice
 
   def disp_dice(character)
