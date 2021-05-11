@@ -78,14 +78,14 @@ class Sugoroku
   end
 
   def build_character
-    @character = Character.new(0, 0)
+    @character = Character.new(0, 0, "name")
   end
 
   def build_player
-    @player = Player.new(0, 0)
+    @player = Player.new(0, 0, "プレイヤー")
   end
 
   def build_computer
-    @computer = Computer.new(0, 0)
+    @computer = Computer.new(0, 0, "CPU")
   end
 end
