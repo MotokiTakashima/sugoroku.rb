@@ -29,7 +29,7 @@ class Character
       change_position
       puts <<~text
              現在#{@name}は、#{@position}マス目です。
-             =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
+             
            text
     elsif @position > map.max_square
       puts <<~text
@@ -72,4 +72,3 @@ class Character
     end
   end
 end
-
