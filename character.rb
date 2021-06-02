@@ -16,7 +16,6 @@ class Character
          text
     @position += @number_dice
     if @position < map.max_square
-      disp_square(map)
       puts ""
       puts "#{@position}マス目にとまりました。"
     elsif @position > map.max_square
@@ -37,7 +36,6 @@ class Character
              #{@position - map.max_square}マス戻ります。
            text
       @position = map.max_square - (@position - map.max_square)
-      disp_square(map)
       puts <<~text
              現在、#{@position}マス目です。
              

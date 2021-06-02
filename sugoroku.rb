@@ -45,6 +45,7 @@ class Sugoroku
         make_judgment
         break
       end
+      show_map
     end
   end
 
@@ -59,6 +60,16 @@ class Sugoroku
            ----------------------------------
            ゴールまで#{@map.max_square}マスです
          text
+  end
+
+  def show_map
+    puts "-:-:-:-:-:-:-:-:-:-:-:-現在のコマの位置-:-:-:-:-:-:-:-:-:-:-:-:-:-:"
+    puts ""
+    puts "プレイヤー：■  CPU:▲ "
+           @player.disp_square(@map)
+           @computer.disp_square(@map)
+    puts ""
+    puts "-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:"
   end
 
   def make_judgment

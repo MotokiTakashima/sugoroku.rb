@@ -6,6 +6,10 @@ class Computer < Character
   end
 
   def disp_square(map)
-    puts "□ " * (@position - 1) + "▲ " + "□ " * (map.max_square - @position)
+    if @position > 0
+      puts "□ " * (@position - 1) + "▲ " + "□ " * (map.max_square - @position)
+    else
+      puts "□ " * map.max_square
+    end
   end
 end
