@@ -1,6 +1,6 @@
 require "./character"
 
-class Map < Character
+class Map
   attr_reader :max_square
 
   def initialize(max_square)
