@@ -3,8 +3,8 @@ require "./character"
 class Map
   attr_reader :max_square
 
-  def initialize(max_square)
-    @max_square = max_square
+  def initialize
+    @max_square = 30
   end
   
   def activate_gimmick(character)

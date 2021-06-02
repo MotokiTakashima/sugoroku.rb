@@ -81,7 +81,7 @@ class Sugoroku
   end
 
   def build_map
-    @map = Map.new(30)
+    @map = Map.new
   end
 
   def build_dice
