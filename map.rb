@@ -1,4 +1,4 @@
-require "./character"
+require_relative "character"
 
 class Map
   attr_reader :max_square

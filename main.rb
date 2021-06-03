@@ -1,5 +1,5 @@
 require "pry"
-require "./sugoroku"
+require_relative "sugoroku"
 
 sugoroku = Sugoroku.new
 

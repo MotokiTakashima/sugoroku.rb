@@ -1,8 +1,8 @@
-require "./map"
-require "./player"
-require "./computer"
-require "./dice"
-require "./character"
+require_relative "map"
+require_relative "player"
+require_relative "computer"
+require_relative "dice"
+require_relative "character"
 
 class Sugoroku
 
