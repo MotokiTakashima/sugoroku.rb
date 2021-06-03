@@ -8,10 +8,10 @@ class Sugoroku
 
   def start
 
-    build_map
-    build_dice
-    build_player
-    build_computer
+    @map = Map.new
+    @dice = Dice.new
+    @player = Player.new(0, 0, "プレイヤー")
+    @computer = Computer.new(0, 0, "CPU")
 
     informaition
 
@@ -79,19 +79,4 @@ class Sugoroku
     end
   end
 
-  def build_map
-    @map = Map.new
-  end
-
-  def build_dice
-    @dice = Dice.new
-  end
-
-  def build_player
-    @player = Player.new(0, 0, "プレイヤー")
-  end
-
-  def build_computer
-    @computer = Computer.new(0, 0, "CPU")
-  end
 end
