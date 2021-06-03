@@ -10,7 +10,6 @@ class Sugoroku
 
     build_map
     build_dice
-    build_character
     build_player
     build_computer
 
@@ -86,10 +85,6 @@ class Sugoroku
 
   def build_dice
     @dice = Dice.new
-  end
-
-  def build_character
-    @character = Character.new(0, 0, "name")
   end
 
   def build_player
