@@ -13,7 +13,7 @@ class Sugoroku
     @player = Player.new(0, 0, "プレイヤー")
     @computer = Computer.new(0, 0, "CPU")
 
-    informaition
+    start_informaition
 
     while @player.position < @map.max_square
       #プレイヤーのサイコロを振らす処理
@@ -50,7 +50,7 @@ class Sugoroku
 
   private
 
-  def informaition
+  def start_informaition
     puts <<~text
            ----------------------------------
            |                                |
