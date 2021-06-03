@@ -90,7 +90,7 @@ class Map
        スタートに戻りました。
        text
 
-    when 30
+    when @max_square
       puts <<~text
              ---------------------------
              |                        |
