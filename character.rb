@@ -2,9 +2,9 @@ class Character
 
   attr_reader :number_dice, :position, :name
 
-  def initialize(position, number_dice, name)
-    @position = position
-    @number_dice = number_dice
+  def initialize(name)
+    @position = 0
+    @number_dice = 0
     @name = name
   end
 

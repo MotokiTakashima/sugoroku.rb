@@ -10,8 +10,8 @@ class Sugoroku
 
     @map = Map.new
     @dice = Dice.new
-    @player = Player.new(0, 0, "プレイヤー")
-    @computer = Computer.new(0, 0, "CPU")
+    @player = Player.new("プレイヤー")
+    @computer = Computer.new("CPU")
 
     start_informaition
 
