@@ -1,20 +1,20 @@
 class Character
 
-  attr_reader :number_dice, :position, :name
+  attr_reader :dice_number, :position, :name
 
   def initialize(name)
     @position = 0
-    @number_dice = 0
+    @dice_number = 0
     @name = name
   end
 
   def move_forward(map)
     puts <<~text
-           サイコロの目は#{@number_dice}です。
-           #{@number_dice}マス進みます。
+           サイコロの目は#{@dice_number}です。
+           #{@dice_number}マス進みます。
       
          text
-    @position += @number_dice
+    @position += @dice_number
     if @position < map.max_square
       puts ""
       puts "#{@position}マス目にとまりました。"

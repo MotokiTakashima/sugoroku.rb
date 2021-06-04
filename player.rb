@@ -3,8 +3,8 @@ class Player < Character
   def roll_dice
     puts ""
     print "あなたの番です。エンターキーを押してください"
-    @number_dice = gets.to_i
-    @number_dice = rand(1..6)
+    @dice_number = gets.to_i
+    @dice_number = rand(1..6)
   end
   
   def disp_square(map)

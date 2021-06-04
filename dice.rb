@@ -1,7 +1,7 @@
 class Dice
 
   def disp_dice(character)
-    case character.number_dice
+    case character.dice_number
     when 1
       puts <<~text
              ---------
