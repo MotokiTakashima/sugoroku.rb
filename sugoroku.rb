@@ -16,29 +16,19 @@ class Sugoroku
     start_informaition
 
     while @player.position < @map.max_square
-      #プレイヤーのサイコロを振らす処理
       @player.roll_dice
-      #サイコロの出目の表示
       @dice.disp_dice(@player)
-      #プレイヤーの進んだ位置を表示
       @player.move_forward(@map)
-      #プレイヤーが止まったマスのギミック
       @map.activate_gimmick(@player)
-      #プレイヤーの現在地を表示
       @player.show_square(@map)
-      #ゴール判定
       if @player.position == @map.max_square
        make_judgment
        break
       end
-      #CPUがサイコロを振る
       @computer.roll_dice
       @dice.disp_dice(@computer)
-      #CPUが進んだマスを表示
       @computer.move_forward(@map)
-      #CPUが止まったマスのギミック
       @map.activate_gimmick(@computer)
-      #CPUの現在地を表示
       @computer.show_square(@map)
       if @computer.position == @map.max_square
         make_judgment
