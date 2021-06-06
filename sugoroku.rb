@@ -15,7 +15,7 @@ class Sugoroku
 
     start_informaition
 
-    while @player.position < @map.max_square
+    loop do
       @player.roll_dice
       @dice.disp_dice(@player)
       @player.move_forward(@map)
@@ -68,5 +68,4 @@ class Sugoroku
       puts "CPUがゴールしました。あなたの負けです。"
     end
   end
-
 end
