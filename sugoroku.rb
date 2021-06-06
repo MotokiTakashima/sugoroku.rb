@@ -16,19 +16,17 @@ class Sugoroku
     start_informaition
 
     loop do
-      @player.roll_dice
-      @dice.disp_dice(@player)
-      @player.move_forward(@map)
+
+      play_user(@player)
       break if @player.position == @map.max_square
-      @map.activate_gimmick(@player)
-      @player.show_square(@map)
-      @computer.roll_dice
-      @dice.disp_dice(@computer)
-      @computer.move_forward(@map)
+      activated_gimmick(@player)
+
+      play_user(@computer)
       break if @computer.position == @map.max_square
-      @map.activate_gimmick(@computer)
-      @computer.show_square(@map)
+      activated_gimmick(@computer)
+
       show_map
+      
     end
   end
 
@@ -61,6 +59,17 @@ class Sugoroku
            @computer.disp_square(@map)
     puts ""
     puts "-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:"
+  end
+
+  def play_user(character)
+    character.roll_dice
+    @dice.disp_dice(character)
+    character.move_forward(@map)
+  end
+
+  def activated_gimmick(chracter)
+    @map.activate_gimmick(chracter)
+    chracter.show_square(@map)
   end
 
 end
