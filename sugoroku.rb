@@ -19,19 +19,19 @@ class Sugoroku
       @player.roll_dice
       @dice.disp_dice(@player)
       @player.move_forward(@map)
+      break if @player.position == @map.max_square
       @map.activate_gimmick(@player)
       @player.show_square(@map)
-      break if @player.position == @map.max_square
       @computer.roll_dice
       @dice.disp_dice(@computer)
       @computer.move_forward(@map)
+      break if @computer.position == @map.max_square
       @map.activate_gimmick(@computer)
       @computer.show_square(@map)
-      break if @computer.position == @map.max_square
       show_map
     end
   end
-  
+
   def make_judgment
     if @player.position == @map.max_square
       puts "ゴールしました！！！あなたの勝ちです！！"
