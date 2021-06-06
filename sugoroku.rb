@@ -21,20 +21,22 @@ class Sugoroku
       @player.move_forward(@map)
       @map.activate_gimmick(@player)
       @player.show_square(@map)
-      if @player.position == @map.max_square
-       make_judgment
-       break
-      end
+      break if @player.position == @map.max_square
       @computer.roll_dice
       @dice.disp_dice(@computer)
       @computer.move_forward(@map)
       @map.activate_gimmick(@computer)
       @computer.show_square(@map)
-      if @computer.position == @map.max_square
-        make_judgment
-        break
-      end
+      break if @computer.position == @map.max_square
       show_map
+    end
+  end
+  
+  def make_judgment
+    if @player.position == @map.max_square
+      puts "ゴールしました！！！あなたの勝ちです！！"
+    elsif @computer.position == @map.max_square
+      puts "CPUがゴールしました。あなたの負けです。"
     end
   end
 
@@ -61,11 +63,4 @@ class Sugoroku
     puts "-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:"
   end
 
-  def make_judgment
-    if @player.position == @map.max_square
-      puts "ゴールしました！！！あなたの勝ちです！！"
-    elsif @computer.position == @map.max_square
-      puts "CPUがゴールしました。あなたの負けです。"
-    end
-  end
 end
