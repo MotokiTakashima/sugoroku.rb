@@ -1,3 +1,4 @@
+require_relative "dice"
 class Character
 
   attr_reader :dice_number, :position, :name

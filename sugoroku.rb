@@ -1,7 +1,6 @@
 require_relative "map"
 require_relative "player"
 require_relative "computer"
-require_relative "dice"
 require_relative "character"
 
 class Sugoroku
@@ -26,7 +25,6 @@ class Sugoroku
       activated_gimmick(@computer)
 
       show_map
-      
     end
   end
 

@@ -3,7 +3,7 @@ class Player < Character
   def roll_dice
     puts ""
     print "あなたの番です。エンターキーを押してください"
-    @dice_number = gets.to_i
+    @dice_number = $stdin.gets.chomp
     @dice_number = rand(1..6)
   end
   
