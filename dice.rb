@@ -1,3 +1,4 @@
+require_relative "character"
 class Dice
 
   def disp_dice(character)
