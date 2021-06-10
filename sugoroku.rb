@@ -24,6 +24,7 @@ class Sugoroku
       activated_gimmick(@computer)
 
       show_map
+
     end
   end
 
@@ -59,8 +60,7 @@ class Sugoroku
   end
 
   def play_user(character)
-    character.roll_dice
-    @dice.disp_dice(character)
+    character.roll_dice(@dice)
     character.move_forward(@map)
   end
 

@@ -1,10 +1,11 @@
 class Player < Character
 
-  def roll_dice
+  def roll_dice(dice)
     puts ""
     print "あなたの番です。エンターキーを押してください"
     @dice_number = $stdin.gets.chomp
     @dice_number = rand(1..6)
+    dice.disp_dice(@dice_number)
   end
   
   def disp_square(map)

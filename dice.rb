@@ -1,8 +1,8 @@
-require_relative "character"
+
 class Dice
 
-  def disp_dice(character)
-    case character.dice_number
+  def disp_dice(dice_number)
+    case dice_number
     when 1
       puts <<~text
              ---------

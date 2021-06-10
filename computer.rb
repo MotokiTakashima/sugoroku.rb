@@ -1,8 +1,9 @@
 class Computer < Character
 
-  def roll_dice
+  def roll_dice(dice)
     puts "CPUがサイコロを振ります"
     @dice_number = rand(1..6)
+    dice.disp_dice(@dice_number)
   end
 
   def disp_square(map)
