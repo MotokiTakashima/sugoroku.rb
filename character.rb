@@ -9,6 +9,24 @@ class Character
     @name = name
   end
 
+  def move_forward(map)
+    puts <<~text
+           サイコロの目は#{@dice_number}です。
+           #{@dice_number}マス進みます。
+      
+         text
+    character_position
+    if @position < map.max_square
+      puts ""
+      puts "#{@position}マス目にとまりました。"
+    elsif @position > map.max_square
+      puts "出た目の数がゴールを#{@position - map.max_square}マス分超えました。"
+    end
+  end
+
+  def character_position
+    @position += @dice_number
+  end
 
   def show_square(map)
     if @position < map.max_square
