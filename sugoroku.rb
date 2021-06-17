@@ -61,8 +61,8 @@ class Sugoroku
 
   def move_forward(character)
     puts <<~text
-           サイコロの目は#{@dice_number}です。
-           #{@dice_number}マス進みます。
+           サイコロの目は#{character.dice_number}です。
+           #{character.dice_number}マス進みます。
       
          text
     character.character_position
