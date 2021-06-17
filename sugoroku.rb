@@ -59,9 +59,24 @@ class Sugoroku
     puts "-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:"
   end
 
+  def move_forward(character)
+    puts <<~text
+           サイコロの目は#{@dice_number}です。
+           #{@dice_number}マス進みます。
+      
+         text
+    character.character_position
+    if character.position < @map.max_square
+      puts ""
+      puts "#{character.position}マス目にとまりました。"
+    elsif character.position > @map.max_square
+      puts "出た目の数がゴールを#{character.position - @map.max_square}マス分超えました。"
+    end
+  end
+
   def play_user(character)
     character.roll_dice(@dice)
-    character.move_forward(@map)
+    move_forward(character)
   end
 
   def activated_gimmick(chracter)
