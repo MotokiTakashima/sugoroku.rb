@@ -25,12 +25,16 @@ class Character
              ちょうどでなければゴールできません
              #{@position - map.max_square}マス戻ります。
            text
-      @position = map.max_square - (@position - map.max_square)
+      back_position
       puts <<~text
              現在、#{@position}マス目です。
              
            text
     end
+  end
+
+  def back_position
+    @position = map.max_square - (@position - map.max_square)
   end
 
   def change_position
