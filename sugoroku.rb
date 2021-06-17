@@ -74,14 +74,34 @@ class Sugoroku
     end
   end
 
+  def show_square(character)
+    if character.position < @map.max_square
+      character.change_position
+      puts <<~text
+             現在#{character.name}は、#{character.position}マス目です。
+             
+           text
+    elsif character.position > @map.max_square
+      puts <<~text
+             ちょうどでなければゴールできません
+             #{character.position - @map.max_square}マス戻ります。
+           text
+      character.back_position(@map)
+      puts <<~text
+             現在、#{character.position}マス目です。
+             
+           text
+    end
+  end
+
   def play_user(character)
     character.roll_dice(@dice)
     move_forward(character)
   end
 
-  def activated_gimmick(chracter)
-    @map.activate_gimmick(chracter)
-    chracter.show_square(@map)
+  def activated_gimmick(character)
+    @map.activate_gimmick(character)
+    show_square(character)
   end
 
 end

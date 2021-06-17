@@ -13,27 +13,7 @@ class Character
     @position += @dice_number
   end
 
-  def show_square(map)
-    if @position < map.max_square
-      change_position
-      puts <<~text
-             現在#{@name}は、#{@position}マス目です。
-             
-           text
-    elsif @position > map.max_square
-      puts <<~text
-             ちょうどでなければゴールできません
-             #{@position - map.max_square}マス戻ります。
-           text
-      back_position
-      puts <<~text
-             現在、#{@position}マス目です。
-             
-           text
-    end
-  end
-
-  def back_position
+  def back_position(map)
     @position = map.max_square - (@position - map.max_square)
   end
 
