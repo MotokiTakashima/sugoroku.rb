@@ -30,9 +30,13 @@ class Sugoroku
 
   def make_judgment
     if @player.position == @map.max_square
+      goal_informaition
       puts "ゴールしました！！！あなたの勝ちです！！"
+      puts ""
     elsif @computer.position == @map.max_square
+      goal_informaition
       puts "CPUがゴールしました。あなたの負けです。"
+      puts ""
     end
   end
 
@@ -46,6 +50,17 @@ class Sugoroku
            |                                |
            ----------------------------------
            ゴールまで#{@map.max_square}マスです
+         text
+  end
+
+  def goal_informaition
+    puts <<~text
+           ---------------------------
+           |                        |
+           |        ==GOAL!==       |
+           |                        |
+           ---------------------------
+
          text
   end
 
