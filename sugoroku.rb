@@ -116,7 +116,9 @@ class Sugoroku
   end
   
   def activated_gimmick(character)
-    @map.activate_gimmick(character)
+    if character.position < @map.max_square
+      @map.activate_gimmick(character)
+    end
     show_square(character)
   end
   

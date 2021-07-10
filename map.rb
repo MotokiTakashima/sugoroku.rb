@@ -1,8 +1,7 @@
 require_relative "character"
 
 class Map
-  attr_reader :max_square
-  attr_accessor :gimmick
+  attr_reader :max_square, :gimmick
 
   def initialize
     @max_square = 30
