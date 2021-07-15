@@ -5,17 +5,17 @@ class Map
 
   def initialize
     @max_square = 30
-    @gimmick = [{ square: 1, gimmick_name: "==2マスすすむ==", position: 2 },
-                { square: 3, gimmick_name: "==2マス戻る==", position: -2 },
-                { square: 5, gimmick_name: "==5マス戻る==", position: -5 },
-                { square: 7, gimmick_name: "==3マス戻る==", position: -3 },
-                { square: 10, gimmick_name: "==5マスすすむ==", position: 5 },
-                { square: 14, gimmick_name: "==7マス戻る==", position: -7 },
-                { square: 17, gimmick_name: "==3マス戻る==", position: -3 },
-                { square: 20, gimmick_name: "==スタートに戻る==", position: -20 },
-                { square: 26, gimmick_name: "==スタートに戻る==", position: -26 },
-                { square: 28, gimmick_name: "==10マス戻る==", position: -10 },
-                { square: 29, gimmick_name: "==スタートに戻る==", position: -29 },
+    @gimmick = [{ square: 1, gimmick_name: "==2マスすすむ==", position: 3 },
+                { square: 3, gimmick_name: "==2マス戻る==", position: 1 },
+                { square: 5, gimmick_name: "==スタートに戻る==", position: 0 },
+                { square: 7, gimmick_name: "==3マス戻る==", position: 4 },
+                { square: 10, gimmick_name: "==5マスすすむ==", position: 15 },
+                { square: 14, gimmick_name: "==7マス戻る==", position: 7 },
+                { square: 17, gimmick_name: "==3マス戻る==", position: 14 },
+                { square: 20, gimmick_name: "==スタートに戻る==", position: 0 },
+                { square: 26, gimmick_name: "==スタートに戻る==", position: 0 },
+                { square: 28, gimmick_name: "==10マス戻る==", position: 18 },
+                { square: 29, gimmick_name: "==スタートに戻る==", position: 0 },
               ]
   end
   

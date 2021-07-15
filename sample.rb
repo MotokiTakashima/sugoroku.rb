@@ -3,7 +3,7 @@ class Sample
   @gimmicks = [{ square: 1,  gimmick_name: "==2マスすすむ==", position: 2 },
                { square: 3,  gimmick_name: "==2マス戻る==", position: -2 }
              ]
-  if @gimmicks[0][:square]
+  if @gimmicks[:square] == 1
     puts "#{@gimmicks[0][:gimmick_name]} "
   end
 end
