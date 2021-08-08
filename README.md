@@ -28,6 +28,7 @@ Ruby で動くすごろくゲームです
 
 1. ターミナルで実行。アプリのディレクトリ上で'ruby main.rb'で実行
 2. 画面のメッセージに従い、ゲームを進行
+   (https://user-images.githubusercontent.com/78095577/128617587-c8505293-b7dd-4e98-b18f-a9dda2f584eb.gif)
 
 ## インストール
 

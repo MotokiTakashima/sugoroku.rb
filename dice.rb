@@ -1,4 +1,3 @@
-
 class Dice
 
   def disp_dice(dice_number)
