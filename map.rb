@@ -1,50 +1,90 @@
 require_relative "character"
 
 class Map
-  attr_reader :max_square, :gimmick
+  attr_reader :max_square
 
   def initialize
     @max_square = 30
-    @gimmick = [{ square: 1, gimmick_name: "==2マスすすむ==", position: 3 },
-                { square: 3, gimmick_name: "==2マス戻る==", position: 1 },
-                { square: 5, gimmick_name: "==スタートに戻る==", position: 0 },
-                { square: 7, gimmick_name: "==3マス戻る==", position: 4 },
-                { square: 10, gimmick_name: "==5マスすすむ==", position: 15 },
-                { square: 14, gimmick_name: "==7マス戻る==", position: 7 },
-                { square: 17, gimmick_name: "==3マス戻る==", position: 14 },
-                { square: 20, gimmick_name: "==スタートに戻る==", position: 0 },
-                { square: 26, gimmick_name: "==スタートに戻る==", position: 0 },
-                { square: 28, gimmick_name: "==10マス戻る==", position: 18 },
-                { square: 29, gimmick_name: "==スタートに戻る==", position: 0 },
-              ]
   end
   
   def activate_gimmick(character)
     case character.position
     when 1
-      puts "#{@gimmick[0][:gimmick_name]}"
-    when  3
-      puts "#{@gimmick[1][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |      ==2マス進む==      |
+             ---------------------------
+           text
+    when 3
+      puts <<~text
+             ---------------------------
+             |      ==2マス戻る==      |
+             ---------------------------
+           text
     when 5
-       puts "#{@gimmick[2][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |    ==スタートに戻る==   |
+             ---------------------------
+             スタートに戻りました。
+           text
     when 7
-       puts "#{@gimmick[3][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |     ==2マスすすむ==     |
+             ---------------------------
+           text
     when 10
-       puts "#{@gimmick[4][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |     ==5マスすすむ==     |
+             ---------------------------
+           text
     when 14
-       puts "#{@gimmick[5][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |      ==7マス戻る==      |
+             ---------------------------
+           text
     when 17
-       puts "#{@gimmick[6][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |      ==3マス戻る==      |
+             ---------------------------
+           text
     when 20
-       puts "#{@gimmick[7][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |    ==スタートに戻る==   |
+             ---------------------------
+             スタートに戻りました。
+           text
     when 26
-       puts "#{@gimmick[8][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |    ==スタートに戻る==   |
+             ---------------------------
+             スタートに戻りました。
+           text
     when 28
-       puts "#{@gimmick[9][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |     ==10マスに戻る==    |
+             ---------------------------
+           text
     when 29
-       puts "#{@gimmick[10][:gimmick_name]}"
+      puts <<~text
+             ---------------------------
+             |    ==スタートに戻る==   |
+             ---------------------------
+             スタートに戻りました。
+           text
     else
-      puts "==何も起こりませんでした=="
+      puts <<~text
+             -------------------------------------
+             |     ==何も起こりませんでした==    |
+             -------------------------------------
+           text
     end
   end
 end

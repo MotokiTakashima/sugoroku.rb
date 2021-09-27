@@ -125,27 +125,27 @@ class Sugoroku
   def change_position(character)
     case character.position
     when 1
-      character.position = @map.gimmick[0][:position]
+      character.position = 3
     when 3
-      character.position = @map.gimmick[1][:position]
+      character.position = 2
     when 5
-      character.position = @map.gimmick[2][:position]
+      character.position = 0
     when 7
-      character.position = @map.gimmick[3][:position]
+      character.position = 4
     when 10
-      character.position = @map.gimmick[4][:position]
+      character.position = 15
     when 14
-      character.position = @map.gimmick[5][:position]
+      character.position = 7
     when 17
-      character.position = @map.gimmick[6][:position]
+      character.position = 14
     when 20
-      character.position = @map.gimmick[7][:position]
+      character.position = 0
     when 26
-      character.position = @map.gimmick[8][:position]
+      character.position = 0
     when 28
-      character.position = @map.gimmick[9][:position]
+      character.position = 18
     when 29
-      character.position = @map.gimmick[10][:position]
+      character.position = 0
     end
   end
 end
