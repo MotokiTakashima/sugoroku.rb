@@ -82,7 +82,7 @@ class Sugoroku
   
   def show_square(character)
     if character.position < @map.max_square
-      change_position(character)
+      @map.change_position(character)
       puts <<~text
       現在#{character.name}は、#{character.position}マス目です。
       
@@ -120,32 +120,5 @@ class Sugoroku
       @map.activate_gimmick(character)
     end
     show_square(character)
-  end
-  
-  def change_position(character)
-    case character.position
-    when 1
-      character.position = 3
-    when 3
-      character.position = 2
-    when 5
-      character.position = 0
-    when 7
-      character.position = 4
-    when 10
-      character.position = 15
-    when 14
-      character.position = 7
-    when 17
-      character.position = 14
-    when 20
-      character.position = 0
-    when 26
-      character.position = 0
-    when 28
-      character.position = 18
-    when 29
-      character.position = 0
-    end
   end
 end
